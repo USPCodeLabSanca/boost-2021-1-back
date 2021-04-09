@@ -11,9 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 const userRoute = require('./routes/user')
-
+const authRoute = require('./routes/login')
 app.use(userRoute)
-
+app.use(authRoute)
 port = process.env.PORT;
 
 app.listen(port, () => {
