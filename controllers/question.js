@@ -1,4 +1,4 @@
-const questionModel = require('../models/questions')
+const questionModel = require('../models/question')
 
 module.exports.createQuestion = async (req, res) => {
     const {title, description, type} = req.body
@@ -25,9 +25,9 @@ module.exports.getQuestions = async (req, res) => {
 
 module.exports.getQuestionsByType = async (req, res) => {
 
-    const { type } = req.body
+    const type = req.params.type;
 
-    const questions = await questionModel.find({'type': type})
+    const questions = await questionModel.find({"type": type})
 
     return res.status(200).json(questions)
 }

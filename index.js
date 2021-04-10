@@ -12,8 +12,11 @@ app.use(express.urlencoded({ extended: true }))
 
 const userRoute = require('./routes/user')
 const authRoute = require('./routes/login')
+const questionRoute = require('./routes/question')
 app.use(userRoute)
 app.use(authRoute)
+app.use(questionRoute)
+
 port = process.env.PORT;
 
 app.listen(port, () => {
