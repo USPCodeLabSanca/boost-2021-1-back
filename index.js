@@ -13,9 +13,11 @@ app.use(express.urlencoded({ extended: true }))
 const userRoute = require('./routes/user')
 const authRoute = require('./routes/login')
 const questionRoute = require('./routes/question')
+const scheduleRoute = require('./routes/schedule')
 app.use(userRoute)
 app.use(authRoute)
 app.use(questionRoute)
+app.use(scheduleRoute)
 
 port = process.env.PORT;
 
