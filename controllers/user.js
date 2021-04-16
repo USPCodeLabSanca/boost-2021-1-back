@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 module.exports.createNewUser =  async (req, res) => {
 
-    const { username, password, name, email, completed_questions } = req.body
+    const { username, password, name, email, completed_questions, role } = req.body
 
     const salt = await bcrypt.genSalt(10)
 
@@ -14,7 +14,8 @@ module.exports.createNewUser =  async (req, res) => {
         "password": hashedpass,
         "name": name,
         "email": email,
-        "completed_questions": completed_questions
+        "completed_questions": completed_questions,
+        "role": role,
     }
 
     const newUser = new userModel(user)
