@@ -8,4 +8,5 @@ router.get('/user/:id/schedules', userController.getInterviewsByUser)
 router.post('/user', userController.createNewUser)
 
 
+
 module.exports = router

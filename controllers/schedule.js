@@ -27,8 +27,6 @@ module.exports.getInterviews = async (req, res) => {
 
 //Retorna uma mock interview
 module.exports.getInterviewByID = async (req, res) => {
-    // console.log("oi")
-
     const id = req.params.id;
 
     const interview = await scheduleModel.findById(id)
@@ -37,5 +35,22 @@ module.exports.getInterviewByID = async (req, res) => {
 }
 
 //Atualiza uma schedule de uma mock interview
+module.exports.updateSchedule = async (req, res) => {
+    const id = req.params.id;
+
+    const {date} = req.body
+
+    const interview = await scheduleModel.findOneAndUpdate({_id: id}, {date: date})
+
+    return res.status(200).json(interview)
+}
 
 //Deleta uma schedule de uma mock interview
+module.exports.deleteInterview = async (req, res) => {
+
+    const id = req.params.id;
+    
+    const interview = await scheduleModel.findOneAndDelete({_id: id})
+
+    return res.status(200).json(interview)
+}

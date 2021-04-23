@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const mongoose = require('mongoose')
 
-mongoose.connect(process.env.db, { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(process.env.db, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false})
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
