@@ -5,7 +5,7 @@ const scheduleSchema = mongoose.Schema({
     description: String,
     type: String,
     date: Date,
-    users: [  {type: mongoose.Schema.Types.ObjectId , ref: 'User'} ]
+    users: Array
 })
 
 module.exports = mongoose.model('Schedule', scheduleSchema)

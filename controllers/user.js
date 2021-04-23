@@ -1,4 +1,5 @@
 const userModel = require('../models/user')
+const scheduleModel = require('../models/schedule')
 const bcrypt = require('bcrypt')
 
 module.exports.createNewUser =  async (req, res) => {
@@ -41,4 +42,13 @@ module.exports.getUser = async (req, res) => {
 
     return res.status(200).json(todo);
 
+}
+
+//Retorna todas as mock interviews marcadas pelo usuário
+module.exports.getInterviewsByUser = async (req, res) => {
+    const userid = req.params.id
+
+    const interviews = await scheduleModel.find({ users : { $all : [userid] }})
+    
+    return res.status(200).json(interviews)
 }
